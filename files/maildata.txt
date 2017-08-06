@@ -1,0 +1,2 @@
+a@b.jp=abさん
+c@d.jp=cdさん

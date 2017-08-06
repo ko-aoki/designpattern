@@ -27,7 +27,7 @@ public abstract class Page {
 
     public void output() {
         final String filename = this.title + ".html";
-        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(filename))){
+        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get("files/" + filename))){
 
             bufferedWriter.write(this.makeHtml());
             System.out.println(filename + "を作成しました");

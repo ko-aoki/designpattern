@@ -1,8 +1,8 @@
 package com.example.facade;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -17,11 +17,11 @@ public class Database {
 
     public static Properties getProperties(String dbName) {
 
-        String fileName = System.getProperty("user.dir") + "/" + dbName + ".txt";
+        String fileName = System.getProperty("user.dir") + "/" + "files/" + dbName + ".txt";
         Properties properties = new Properties();
 
-        try {
-            properties.load(Files.newBufferedReader(Paths.get(fileName)));
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
+            properties.load(reader);
         } catch (IOException e) {
             e.printStackTrace();
         }
